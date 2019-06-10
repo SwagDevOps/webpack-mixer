@@ -8,11 +8,11 @@ Built on top of [``laravel-mix``][github:laravel-mix].
 yarn add webpack --dev "SwagDevOps/webpack-mixer#develop"
 ```
 
-## Run
+## Configure
+
+Sample ``webpack.mix.js`` file:
 
 ```js
-// webpack.mix.js
-
 const { Mixer } = require('@swagdevops/webpack-mixer')
 
 const mixer = new Mixer()
@@ -41,10 +41,19 @@ mixer.configure({
 }).run()
 ```
 
+## Run
+
 
 ```sh
 node_modules/webpack/bin/webpack.js \
     --progress --hide-modules \
+    --config node_modules/@swagdevops/webpack-mixer/setup/webpack.config.js
+```
+
+```sh
+node_modules/webpack/bin/webpack.js \
+    --progress --hide-modules \
+    --watch \
     --config node_modules/@swagdevops/webpack-mixer/setup/webpack.config.js
 ```
 
