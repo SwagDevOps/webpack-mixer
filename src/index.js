@@ -201,10 +201,15 @@ class Mixer {
         return self.mix.js(buildables[0].toString(), buildables[1].toString())
       }
 
+      /**
+       * @see https://github.com/tailwindcss/tailwindcss/issues/48#issuecomment-341423237
+       */
       if (buildables[0].extension === 'scss') {
         return self.mix.sass(buildables[0].toString(), buildables[1].toString(), {
           sourceComments: !self.mix.config.production,
           includePaths: self.moduleRoots
+        }).options({
+          processCssUrls: false
         })
       }
     })
