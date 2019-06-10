@@ -2,5 +2,50 @@
 
 Built on top of [``laravel-mix``][github:laravel-mix].
 
+## Install
+
+```sh
+yarn add webpack --dev "SwagDevOps/webpack-mixer#develop"
+```
+
+## Run
+
+```js
+// webpack.mix.js
+
+const { Mixer } = require('@swagdevops/webpack-mixer')
+
+const mixer = new Mixer()
+const paths = mixer.paths
+
+// Configuration ----------------------------------------------------
+const copiables = [
+  [paths.source.join('images/favicon.png'), paths.public.join('favicon.ico')],
+  [paths.source.join('images'), paths.public.join('images')]
+]
+
+const cleanables = [
+  paths.public.join('css/app.css.map'),
+  paths.public.join('js/app.js.map')
+].concat(copiables.map(x => x[1]))
+
+// Execution --------------------------------------------------------
+mixer.configure({
+  copiables: copiables,
+  cleanables: cleanables,
+  webpack: {
+    node: {
+      fs: 'empty'
+    }
+  }
+}).run()
+```
+
+
+```sh
+node_modules/webpack/bin/webpack.js \
+    --progress --hide-modules \
+    --config node_modules/@swagdevops/webpack-mixer/setup/webpack.config.js
+```
 
 [github:laravel-mix]: https://github.com/JeffreyWay/laravel-mix
