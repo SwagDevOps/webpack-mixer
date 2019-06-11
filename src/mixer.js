@@ -41,6 +41,10 @@ class Mixer {
     this._config = Object.assign({}, this._defaultConfig)
     Object.assign(this._config, config)
 
+    this.config.cleanables
+      .filter((x, i, a) => a.indexOf(x) === i)
+      .sort(function (a, b) { return a.localeCompare(b) })
+
     return this
   }
 
@@ -242,9 +246,11 @@ class Mixer {
    * @private
    */
   _makeCleanWebpackPlugin () {
+    let cleanables = this.config.cleanables.map(fp => fp.toString())
+
     return new CleanWebpackPlugin({
       verbose: true,
-      cleanOnceBeforeBuildPatterns: this.config.cleanables.map(fp => fp.toString())
+      cleanOnceBeforeBuildPatterns: cleanables
     })
   }
 
