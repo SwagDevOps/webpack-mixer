@@ -1,9 +1,8 @@
 'use strict'
 
 const glob = require('simple-glob')
-const sprintf = require('sprintf-js').sprintf
 
-/* global process, require, path, __dirname */
+/* global require, path */
 
 /**
  * Path represents the name of a file or directory on the filesystem, but not the file itself.
@@ -29,18 +28,22 @@ class Path {
     return new Path(fp)
   }
 
-  format (...args) {
-    return new Path(sprintf(...[this.toString()].concat(args)))
-  }
-
-  glob () {
-    return glob(this.toString())
+  // noinspection JSUnusedGlobalSymbols
+  /**
+   * Return an array of all file paths that match the given wildcard patterns.
+   *
+   * @param {String} pattern
+   * @returns {Array}
+   */
+  glob (pattern) {
+    return glob(this.join(pattern).toString())
   }
 
   toString () {
     return this._path
   }
 
+  // noinspection JSUnusedGlobalSymbols
   /**
    * @param {string} comparable
    * @returns {*|number}
