@@ -279,4 +279,4 @@ class Mixer {
   }
 }
 
-module.exports = { Mixer }
+module.exports = Mixer
