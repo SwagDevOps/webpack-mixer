@@ -1,8 +1,10 @@
 'use strict'
 
+/* global require */
 const glob = require('simple-glob')
-
-/* global require, path */
+const path = require('path')
+const fs = require('fs')
+const chdir = require('chdir')
 
 /**
  * Path represents the name of a file or directory on the filesystem, but not the file itself.
@@ -28,15 +30,43 @@ class Path {
     return new Path(fp)
   }
 
+  /**
+   * @returns {Stats}
+   */
+  stat () {
+    return fs.lstatSync(this.toString())
+  }
+
+  /**
+   * @returns {boolean}
+   */
+  exists () {
+    return fs.existsSync(this.toString())
+  }
+
   // noinspection JSUnusedGlobalSymbols
   /**
    * Return an array of all file paths that match the given wildcard patterns.
    *
    * @param {String} pattern
-   * @returns {Array}
+   * @param {boolean} absolute
+   * @returns {Path[]}
    */
-  glob (pattern) {
-    return glob(this.join(pattern).toString())
+  glob (pattern, absolute = true) {
+    let self = this
+    let matches = []
+    let directory = this.toString()
+
+    if (this.exists() && this.stat().isDirectory()) {
+      chdir(directory, function () {
+        matches = glob(pattern)
+          .map(function (fp) {
+            return absolute ? self.join(fp) : new Path(fp)
+          })
+      })
+    }
+
+    return matches
   }
 
   toString () {
