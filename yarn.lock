@@ -1585,6 +1585,11 @@ charenc@~0.0.1:
   resolved "https://registry.yarnpkg.com/charenc/-/charenc-0.0.2.tgz#c0a1d2f3a7092e03774bfa83f14c0fc5790a8667"
   integrity sha1-wKHS86cJLgN3S/qD8UwPxXkKhmc=
 
+chdir@~0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/chdir/-/chdir-0.0.0.tgz#c29bdb85f391834c83ddbf090f18a11b0ed96bee"
+  integrity sha1-wpvbhfORg0yD3b8JDxihGw7Za+4=
+
 chokidar@^2.0.2, chokidar@^2.0.3, chokidar@^2.1.6:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.1.6.tgz#b6cad653a929e244ce8a834244164d241fa954c5"
