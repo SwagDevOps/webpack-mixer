@@ -6,7 +6,6 @@ const Mix = require('laravel-mix')
 const os = require('os')
 const assert = require('assert').strict
 const WebpackNotifierPlugin = require('webpack-notifier')
-const sprintf = require('sprintf-js').sprintf
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin')
 const VersionFile = require('webpack-version-file-plugin')
@@ -268,7 +267,7 @@ class Mixer {
   _makeExtraWatchWebpackPlugin () {
     return new ExtraWatchWebpackPlugin({
       files: [this.paths.source.join('**/*.vue').toString()]
-        .concat(this.moduleRoots.map(path => sprintf('%s/**/*.vue', path.toString())))
+        .concat(this.moduleRoots.map(path => path.join('%s/**/*.vue').toString()))
     })
   }
 
