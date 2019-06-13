@@ -2,6 +2,7 @@
     "name": "@swagdevops/webpack-mixer",
     "version": "0.0.1",
     "main": "src/index.js",
+    "repository": "https://github.com/SwagDevOps/webpack-mixer",
     "files": [
         "setup/*.js",
         "src"
@@ -18,7 +19,7 @@
         "sass-loader": "~7.1",
         "simple-glob": "~0.2",
         "vue-template-compiler": "~2.6",
-        "webpack-cli": "~3.3",
+        "webpack-cli": "^3.3.4",
         "webpack-version-file-plugin": "~0.4"
     },
     "devDependencies": {
