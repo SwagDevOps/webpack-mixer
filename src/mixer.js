@@ -4,6 +4,7 @@
 
 const Mix = require('laravel-mix')
 const os = require('os')
+const assert = require('assert').strict
 const WebpackNotifierPlugin = require('webpack-notifier')
 const sprintf = require('sprintf-js').sprintf
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -186,9 +187,15 @@ class Mixer {
   _mixCopiables () {
     let self = this
 
-    this.config.copiables.forEach(function (copiables) {
-      self.mix.copy(copiables[0].toString(), copiables[1].toString(), false)
-    })
+    this.config.copiables
+      .map(function (row) {
+        assert.ok(Array.isArray(row))
+        assert.ok(row.length === 2)
+
+        return row
+      }).forEach(function (copiables) {
+        self.mix.copy(copiables[0].toString(), copiables[1].toString(), false)
+      })
 
     return self
   }
