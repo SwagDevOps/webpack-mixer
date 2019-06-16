@@ -1,12 +1,19 @@
 {
     "name": "@swagdevops/webpack-mixer",
     "version": "0.0.1",
-    "main": "src/index.js",
+    "main": "dist/index.js",
     "repository": "https://github.com/SwagDevOps/webpack-mixer",
     "files": [
-        "setup/*.js",
-        "src"
+        "setup",
+        "src",
+        "dist",
+        "resources"
     ],
+    "scripts": {
+        "clean": "rimraf dist",
+        "build": "tsc",
+        "watch": "tsc --watch"
+    },
     "dependencies": {
         "babel-plugin-module-resolver": "~3.2",
         "chdir": "~0.0",
@@ -20,6 +27,7 @@
         "simple-glob": "~0.2",
         "vue-template-compiler": "~2.6",
         "webpack-cli": "^3.3.4",
+        "webpack-notifier": "*",
         "webpack-version-file-plugin": "~0.4"
     },
     "devDependencies": {
@@ -28,6 +36,8 @@
         "eslint-plugin-import": "~2.17",
         "eslint-plugin-node": "~9.0",
         "eslint-plugin-promise": "~4.1",
-        "eslint-plugin-standard": "~4.0"
+        "eslint-plugin-standard": "~4.0",
+        "rimraf": "~2.6",
+        "typescript": "~3.5"
     }
 }
