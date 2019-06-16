@@ -1,0 +1,18 @@
+<%# vim: set ft=javascript: #%><%-
+(function () {
+    /* global package, currentTime, process */
+    let version = package.version.split('.').map(part => parseInt(part, 10))
+
+    return JSON.stringify({
+        major: version[0],
+        minor: version[1],
+        patch: version[2],
+        build_date: currentTime.toISOString(),
+        environment: process.env.NODE_ENV
+    }, null, 4)
+}())
+%><%#
+ # Local Variables:
+ # mode: js
+ # End:
+ #%>
