@@ -27,7 +27,7 @@
         "simple-glob": "~0.2",
         "vue-template-compiler": "~2.6",
         "webpack-cli": "^3.3.4",
-        "webpack-notifier": "*",
+        "webpack-notifier": "~1.7",
         "webpack-version-file-plugin": "~0.4"
     },
     "devDependencies": {
