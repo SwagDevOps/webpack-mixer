@@ -44,14 +44,21 @@ export class Config {
     }
 
     get cleanables(): Path[] {
+        let self = this;
+
         return this.config.cleanables
-            .filter((x: string, i: number, a: string) => a.indexOf(x) === i)
             .map(function (fp: string | Path): string {
                 return new Path(fp).toString();
             })
+            .concat((function () {
+                return self.config.cleanCopiables
+                    ? self.copiables.map(x => x[1])
+                    : [];
+            }()))
+            .filter((x: string, i: number, a: string) => a.indexOf(x) === i)
             .sort(function (a: Path, b: Path) {
                 return a.localeCompare(b)
-            })
+            });
     }
 
     get buildables(): Path[][] {
@@ -126,6 +133,7 @@ export class Config {
             copiables: [],
             notify: true,
             cleanables: [],
+            cleanCopiables: true,
             buildables: [
                 [this.paths.source.join('js/app.js'), this.paths.public.join('js/app.js')],
                 [this.paths.source.join('sass/app.scss'), this.paths.public.join('css/app.css')]
