@@ -39,15 +39,15 @@ var Config = /** @class */ (function () {
         get: function () {
             var self = this;
             return this.config.cleanables
-                .map(function (fp) {
-                return new Path_1.Path(fp).toString();
-            })
+                .map(function (fp) { return new Path_1.Path(fp); })
                 .concat((function () {
                 return self.config.cleanCopiables
                     ? self.copiables.map(function (x) { return x[1]; })
                     : [];
             }()))
-                .filter(function (x, i, a) { return a.indexOf(x) === i; })
+                .map(function (fp) { return fp.toString(); })
+                .filter(function (x, i, r) { return r.indexOf(x) === i; })
+                .map(function (fp) { return new Path_1.Path(fp); })
                 .sort(function (a, b) {
                 return a.localeCompare(b);
             });
@@ -74,6 +74,7 @@ var Config = /** @class */ (function () {
                 .map(function (files) {
                 return [new Path_1.Path(files[0]), new Path_1.Path(files[1])];
             })
+                .filter(function (x, i, r) { return r.indexOf(x) === i; })
                 .sort(function (a, b) {
                 return a[1].localeCompare(b[1]);
             });

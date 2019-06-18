@@ -47,15 +47,15 @@ export class Config {
         let self = this;
 
         return this.config.cleanables
-            .map(function (fp: string | Path): string {
-                return new Path(fp).toString();
-            })
+            .map((fp: string | Path) => new Path(fp))
             .concat((function () {
                 return self.config.cleanCopiables
                     ? self.copiables.map(x => x[1])
                     : [];
             }()))
-            .filter((x: string, i: number, a: string) => a.indexOf(x) === i)
+            .map((fp: Path) => fp.toString())
+            .filter((x: string, i: number, r: string[]) => r.indexOf(x) === i)
+            .map((fp: string) => new Path(fp))
             .sort(function (a: Path, b: Path) {
                 return a.localeCompare(b)
             });
@@ -76,6 +76,7 @@ export class Config {
             .map(function (files: string[] | Path[]): Path[] {
                 return [new Path(files[0]), new Path(files[1])];
             })
+            .filter((x: Path, i: number, r: Path[]) => r.indexOf(x) === i)
             .sort(function (a: Path[], b: Path[]) {
                 return a[1].localeCompare(b[1])
             })
