@@ -28,15 +28,15 @@ describe('Config', function () {
 
       this.config.configure({
         copiables: [
+          [paths.source.join('images'), paths.public.join('images')],
           [paths.source.join('images/favicon.png'), paths.public.join('favicon.ico')],
           [paths.source.join('images'), paths.public.join('images')],
           [paths.source.join('images/favicon.png'), paths.public.join('favicon.ico')],
-          [paths.source.join('images'), paths.public.join('images')]
         ]
       })
     })
 
-    it('should return 2 (unique) paths', function () {
+    it('should return 2 (sorted unique) paths', function () {
       expect(this.config.cleanables.length).to.equal(2)
       expect(this.config.cleanables[0].toString()).to.equal('/tmp/public/favicon.ico')
       expect(this.config.cleanables[1].toString()).to.equal('/tmp/public/images')
