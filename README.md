@@ -27,7 +27,7 @@ const copiables = [
 const cleanables = [
   paths.public.join('css/app.css.map'),
   paths.public.join('js/app.js.map')
-].concat(copiables.map(x => x[1]))
+]
 
 // Execution --------------------------------------------------------
 mixer.configure({
