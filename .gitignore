@@ -1,11 +1,8 @@
-*.gem
-*.swp
-*_flymake.*
-*~
 /**/.*
+/mix-manifest.json
 /node_modules/*
-/vendor/
-/yarn-error.log
+/public/*
+# exceptions are below -----------------------------------------------
 !/.env.dist
 !/.gitignore
 !/tests/.eslintrc.json
