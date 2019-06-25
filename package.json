@@ -13,7 +13,8 @@
         "clean": "rimraf dist",
         "build": "tsc",
         "watch": "tsc --watch",
-        "test": "mocha tests/**/*.spec.js -G --diff --reporter dot"
+        "test": "mocha tests/**/*.spec.js -G --diff --reporter dot",
+        "demo": "node_modules/webpack/bin/webpack.js --progress --hide-modules --config ./setup/webpack.config.js"
     },
     "dependencies": {
         "babel-plugin-module-resolver": "~3.2",
