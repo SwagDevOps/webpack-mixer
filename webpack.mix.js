@@ -1,7 +1,8 @@
 'use strict'
 
 /* global require */
-const { Mixer } = require(__dirname + '/dist/index')
+const { Mixer } = require('./dist')
+
 const mixer = new Mixer()
 const paths = mixer.paths
 
@@ -9,9 +10,11 @@ const paths = mixer.paths
 
 const copiables = []
 
+/** @var {Path[]|string[]} */
 const cleanables = []
   .concat(paths.public.join('css').glob('*.map'))
   .concat(paths.public.join('js').glob('*.map'))
+
 // Execution --------------------------------------------------------
 
 mixer.configure({
