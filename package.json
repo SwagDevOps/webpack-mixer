@@ -11,7 +11,7 @@
     ],
     "scripts": {
         "clean": "rimraf dist",
-        "build": "tsc",
+        "build": "tsc --listEmittedFiles",
         "watch": "tsc --watch",
         "test": "mocha tests/**/*.spec.js -G --diff --reporter dot",
         "demo": "webpack --progress --hide-modules --config ./setup/webpack.config.js"
