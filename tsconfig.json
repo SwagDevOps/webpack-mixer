@@ -1,11 +1,14 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "declaration": true,
-    "outDir": "./dist",
-    "strict": true
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "**/*.spec.js"]
+    "compilerOptions": {
+        "charset": "utf-8",
+        "newLine": "lf",
+        "target": "ES5",
+        "module": "CommonJS",
+        "declaration": true,
+        "outDir": "./dist",
+        "strict": true,
+        "alwaysStrict": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "**/*.spec.js"]
 }
