@@ -14,7 +14,7 @@
         "build": "tsc --listEmittedFiles",
         "watch": "tsc --watch",
         "test": "mocha tests/**/*.spec.js -G --diff --reporter dot",
-        "demo": "webpack --progress --hide-modules --config ./setup/webpack.config.js"
+        "demo": "cd demo && webpack --progress --hide-modules --config ../setup/webpack.config.js"
     },
     "dependencies": {
         "babel-plugin-module-resolver": "~3.2",
