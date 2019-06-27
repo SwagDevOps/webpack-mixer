@@ -1,6 +1,6 @@
 {
     "name": "@swagdevops/webpack-mixer",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "main": "dist/index.js",
     "repository": "https://github.com/SwagDevOps/webpack-mixer",
     "files": [
@@ -11,9 +11,10 @@
     ],
     "scripts": {
         "clean": "rimraf dist",
-        "build": "tsc",
+        "build": "tsc --listEmittedFiles",
         "watch": "tsc --watch",
-        "test": "mocha tests/**/*.spec.js -G --diff --reporter dot"
+        "test": "mocha tests/**/*.spec.js -G --diff --reporter dot",
+        "example": "cd example && webpack --progress --hide-modules --config ../setup/webpack.config.js"
     },
     "dependencies": {
         "babel-plugin-module-resolver": "~3.2",
