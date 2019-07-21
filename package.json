@@ -1,6 +1,6 @@
 {
     "name": "@swagdevops/webpack-mixer",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "main": "dist/index.js",
     "repository": "https://github.com/SwagDevOps/webpack-mixer",
     "files": [
@@ -28,7 +28,7 @@
         "sass-loader": "~7.1",
         "simple-glob": "~0.2",
         "vue-template-compiler": "~2.6",
-        "webpack-cli": "^3.3.4",
+        "webpack-cli": "^3.3.6",
         "webpack-notifier": "~1.7",
         "webpack-version-file-plugin": "~0.4"
     },
@@ -42,7 +42,7 @@
         "eslint-plugin-standard": "~4.0",
         "mocha": "~6.1",
         "rimraf": "~2.6",
-        "typescript": "~3.5"
+        "typescript": "^3.5.3"
     },
     "author": "Dimitri Arrigoni",
     "license": "MIT"
