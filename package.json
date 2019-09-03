@@ -20,7 +20,7 @@
         "babel-plugin-module-resolver": "~3.2",
         "chdir": "~0.0",
         "clean-webpack-plugin": "~3.0",
-        "ejs": "^2.6.2",
+        "ejs": "^2.7.1",
         "extra-watch-webpack-plugin": "~1.0",
         "imports-loader": "~0.8",
         "laravel-mix": "~4.1",
