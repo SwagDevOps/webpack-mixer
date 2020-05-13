@@ -42,7 +42,7 @@
         "eslint-plugin-standard": "~4.0",
         "mocha": "~6.2",
         "rimraf": "~2.6",
-        "typescript": "^3.5.3"
+        "typescript": "^3.9.2"
     },
     "author": "Dimitri Arrigoni",
     "license": "MIT"
