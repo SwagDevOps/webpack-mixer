@@ -40,7 +40,7 @@
         "eslint-plugin-node": "~9.0",
         "eslint-plugin-promise": "~4.2",
         "eslint-plugin-standard": "~4.0",
-        "mocha": "~6.2",
+        "mocha": "~8.1",
         "rimraf": "~2.6",
         "typescript": "^3.5.3"
     },
